@@ -1,0 +1,27 @@
+
+let nameOfSpaceShuttle = 'Determination';
+let shuttleSpeedMPH = 17500;
+let distanceToMarsKM = 225000000;
+let distanceToTheMoonKM = 384400;
+const milesPerKilometer	= 0.621;
+/*
+console.log(typeof 'Determination');
+console.log(typeof 17500);
+console.log(typeof 225000000);
+console.log(typeof 384400);
+console.log(typeof 0.621);
+
+let milesToMars = distanceToMarsKM * milesPerKilometer;
+//  139,725,000 = Consolt.lot(225000000 * 0.621);
+let hoursToMars = milesToMars / shuttleSpeedMPH;
+let daysToMars = hoursToMars / 24;
+
+console.log(nameOfSpaceShuttle,"will take",daysToMars,"days to reach Mars.")
+
+*/
+
+let milesToMoon = distanceToTheMoonKM * milesPerKilometer;
+let hoursToMoon = milesToMoon / shuttleSpeedMPH;
+let daysToMoon = hoursToMoon / 24;
+
+console.log(nameOfSpaceShuttle, "will take",daysToMoon,"days to reach the Moon");
