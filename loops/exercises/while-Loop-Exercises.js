@@ -28,6 +28,7 @@ while (astronautsAboard !== 7) {
 while (startingFuelLevel-100*astronautsAboard >= 0) {
   altitudeReachedMiles += 50;
   startingFuelLevel -= 100*astronautsAboard;
+  console.log(startingFuelLevel)
   }
 
 let output = `The shuttle gained an altitude of ${altitudeReachedMiles} miles.`;
