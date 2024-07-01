@@ -1,0 +1,107 @@
+
+
+function makeLine(size) {
+    let line = '';
+    for (let i = 0; i < size; i++) {
+      line += '#';
+      //console.log(line);
+    } //console.log(line);
+    return line;
+  }
+
+  /*
+function makeSquare(size) {
+    let square = '';
+    for (let i = 0; i < size; i++) {
+      // Call makeLine(size) to create each row of the square
+      square += makeLine(size);
+      // Add a newline character after each row except the last one
+      if (i < size - 1) {
+        square += '\n';
+      }
+    }
+    return square;
+  }
+      console.log(makeSquare(10));
+
+  */
+  /*
+
+
+
+  */
+  
+  // Example usage:
+
+  //making a rectangle
+  /*
+  function makeRectangle(width, height) {
+    let rectangle = '';
+    for (let i = 0; i < height; i++) {
+      rectangle += (makeLine(width) + '\n');
+    }
+    return rectangle.slice(0, -1);
+  }
+  console.log(makeRectangle(70,5))
+*/
+  //Make a triangle using makeSquare function above - test your own knowledge...
+
+  /*
+  //downstairs
+
+ 
+    function makeDownwardStairs(height) {
+        let stairs = '';
+        for (let i = 0; i < height; i++) {
+          stairs += (makeLine(i+1) + '\n');
+        }
+        return stairs.slice(0, -1);
+     } //don't need slice to start - it equals 1,2,3,4 - can play with slice to remove the end #s
+     console.log(makeDownwardStairs(4));
+*/
+//make spaces and lines
+//We have inserted underscores to represent spaces, so they are visible in the output. Don’t do this in your code.
+
+/* Atempt 1
+    function makeSpaceLine(numSpaces, numChars) {
+        let spaces = '';
+        for (let i = 0; i < numChars; i ++) {
+            spaces += '\t' + (makeLine(numSpaces));
+        }
+        return spaces
+    }
+    console.log(makeSpaceLine(3,5))
+  */
+//attempt 2 at spacing
+    function makeSpaceLine(numSpaces, numChars) {
+      let line = '';
+      
+      // Add numSpaces spaces at the beginning
+      for (let i = 0; i < numSpaces; i++) {
+        line += ' ';
+      }
+      
+      // Add numChars hashes
+      for (let i = 0; i < numChars; i++) {
+        line += '#';
+      }
+      
+      // Add numSpaces spaces at the end
+      for (let i = 0; i < numSpaces; i++) {
+        line += ' ';
+      }
+      
+      return line;
+    }
+    
+    // Example usage:
+    console.log(makeSpaceLine(2, 5));
+
+    function makeIsoscelesTriangle(height) {
+      let triangle = '';
+      for (let i = 0; i < height; i++) {
+        triangle += (makeSpaceLine(height - i - 1, 2*i + 1) + '\n');
+      }
+      return triangle.slice(0, -1);
+    }
+    console.log(makeIsoscelesTriangle(2))
