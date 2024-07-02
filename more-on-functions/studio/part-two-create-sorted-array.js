@@ -8,7 +8,9 @@ function findMinValue(arr){
   return min;
 }
 
-//Create a function with an array of numbers as its parameter. This function will return a new array with the numbers sorted from least to greatest value.
+//Create a function with an array of numbers as its parameter. 
+//This function will return a new array with the numbers sorted from least to greatest value.
+
 
 /*Within the function:
 1) Define a new, empty array to hold the final sorted numbers.
@@ -18,12 +20,44 @@ function findMinValue(arr){
 5) Return the new sorted array.
 6) Be sure to print the results in order to verify your code.*/
 
-//Your function here...
-
-/* BONUS MISSION: Refactor your sorting function to use recursion below:
- */
-
-//Sample arrays for testing:
 let nums1 = [5, 10, 2, 42];
 let nums2 = [-2, 0, -10, -44, 5, 3, 0, 3];
 let nums3 = [200, 5, 4, 10, 8, 5, -3.3, 4.4, 0];
+
+//Your function here...
+
+function sortNums(arr) {
+  let sorted = [];
+  while (arr.length) { //arr.length >
+    let min = findMinValue(arr);
+    sorted.push(min);
+    arr.splice(arr.indexOf(min), 1)
+  }
+  return sorted;
+}
+
+
+//console.log(sortNums(nums2));
+
+//console.log(sortNums(nums3));
+//console.log(sortNums(nums1));
+//console.log(nums1);
+//BONUS MISSION: Refactor your sorting function to use recursion below:
+ 
+function sortNumsRecursive(arr, sorted = []) {
+  // base case - stop functioning
+  if (!arr.length) { //arr.length === 0)
+    console.log("Sorted!");
+    return sorted;
+} 
+  let min = findMinValue(arr);
+  sorted.push(min);
+  arr.splice(arr.indexOf(min), 1) //1 is removing 1
+  console.log(arr)
+  console.log(sorted);
+  return sortNumsRecursive(arr,sorted);
+  }
+  console.log(sortNumsRecursive(nums2));
+  console.log(nums2);
+  //otherwise, make changes to borth arr and sorted and recurse
+
