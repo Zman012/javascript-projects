@@ -3,11 +3,12 @@
 function makeLine(size) {
     let line = '';
     for (let i = 0; i < size; i++) {
-      line += '#';
+      line = line + '#';
       //console.log(line);
     } //console.log(line);
     return line;
   }
+  //console.log(makeLine(5));
 
   /*
 function makeSquare(size) {
@@ -15,64 +16,71 @@ function makeSquare(size) {
     for (let i = 0; i < size; i++) {
       // Call makeLine(size) to create each row of the square
       square += makeLine(size);
+      //console.log(square)
+      console.log("=======")
       // Add a newline character after each row except the last one
-      if (i < size - 1) {
-        square += '\n';
+      if (i < size) {
+        square += '\n'; //Kavin lines 22 and 23 
+        console.log(square);
       }
     }
     return square;
   }
-      console.log(makeSquare(10));
-
+      console.log(makeSquare(3));
+    console.log("-----------")
   */
-  /*
+ 
 
 
-
-  */
-  
   // Example usage:
 
-  //making a rectangle
-  /*
+ //making a rectangle
+/*
   function makeRectangle(width, height) {
     let rectangle = '';
     for (let i = 0; i < height; i++) {
       rectangle += (makeLine(width) + '\n');
+      console.log(rectangle);
+      console.log("----")
     }
-    return rectangle.slice(0, -1);
+    return rectangle.slice(0, -1); // Kavin -couldnt we use trim to remove space? what is happening here
   }
-  console.log(makeRectangle(70,5))
+  console.log(makeRectangle(7,3))
+console.log("--------");
 */
   //Make a triangle using makeSquare function above - test your own knowledge...
 
-  /*
+  
   //downstairs
 
- 
+ /*
     function makeDownwardStairs(height) {
         let stairs = '';
         for (let i = 0; i < height; i++) {
           stairs += (makeLine(i+1) + '\n');
+          console.log(stairs);
         }
         return stairs.slice(0, -1);
      } //don't need slice to start - it equals 1,2,3,4 - can play with slice to remove the end #s
      console.log(makeDownwardStairs(4));
+console.log("------")
 */
 //make spaces and lines
 //We have inserted underscores to represent spaces, so they are visible in the output. Don’t do this in your code.
 
-/* Atempt 1
+/*
     function makeSpaceLine(numSpaces, numChars) {
         let spaces = '';
         for (let i = 0; i < numChars; i ++) {
             spaces += '\t' + (makeLine(numSpaces));
         }
-        return spaces
+        return spaces + numChars + spaces
     }
-    console.log(makeSpaceLine(3,5))
+    console.log(makeSpaceLine(3,8))
+  console.log("-------")
   */
-//attempt 2 at spacing
+ /*
+//attempt 2 at spacing option 1
     function makeSpaceLine(numSpaces, numChars) {
       let line = '';
       
@@ -96,12 +104,51 @@ function makeSquare(size) {
     
     // Example usage:
     console.log(makeSpaceLine(2, 5));
+*/
 
+//make spaces option 3
+
+    function makeSpaceLine(numSpaces, numChars) {
+      let spaces = "";
+      let chars = "";
+      for (let i = 0; i < numSpaces; i++) {
+          spaces += " ";
+      }
+      for (let i = 0; i < numChars; i++) {
+          chars += '#'
+      }
+        return spaces + chars + spaces
+    }
+    console.log(makeSpaceLine(17,1));
+    console.log("----")
+
+
+
+
+
+      //Kavin to walk through - reverse triangle
     function makeIsoscelesTriangle(height) {
       let triangle = '';
       for (let i = 0; i < height; i++) {
         triangle += (makeSpaceLine(height - i - 1, 2*i + 1) + '\n');
       }
-      return triangle.slice(0, -1);
+    let reversed = '';
+      for (let i = 0; i < height; i ++) {
+        reversed += makeSpaceLine(height - i - 1, 2*i + 1) + '\n' + reversed;
+      }
+      return triangle //.slice(0, -1);
     }
-    console.log(makeIsoscelesTriangle(2))
+    console.log(makeIsoscelesTriangle(16))
+/*
+function reverse(str) {
+    let reversed = '';
+
+    for (let i = 0; i < str.length; i++) {
+        reversed = str[i] + reversed;
+    }
+
+    return reversed;
+}
+
+    //makeDiamond(height)
+    */
