@@ -28,7 +28,19 @@ console.log("Hold status: " + holdStatus(cargoHold));
  */
  
 //a). Define an anonymous function and set it equal to a variable with a normal, non-suspicious name. The function takes one parameter. This will be the fuel level on the shuttle.
-
+console.log('---------')
+let nonSuspiciousFunction = function(a) {
+  if (checkFuel(a) === 'green') {
+  return a - 100001;
+  }
+  else if (checkFuel(a) === 'yellow') {
+    return a - 50001;
+  } else {
+    return a;
+  }
+}
+console.log(nonSuspiciousFunction(50001));
+console.log("--------")
 //b). You must siphon off fuel without alerting the TAs. Inside your function, you want to reduce the fuel level as much as possible WITHOUT changing the color returned by the checkFuel function.
 
 //c). Once you figure out how much fuel to pump out, return that value.
@@ -37,6 +49,52 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 /* Next, liberate some of that glorious cargo.
  */
+//splice items out and then push them to a new array?
+
+//Ask Kavin what I'm missing:
+
+let liberatedCargo = function(cargoHold) {
+  let stolenCargo = [];
+  for (let i = 0; i < cargoHold.length; i++) {
+    if (cargoHold[i] === "gold") {
+      stolenCargo.push(cargoHold.splice(i,1,"wet clothes"));
+      //console.log(cargoHold);
+    } if (cargoHold[i] === "satelite") {
+      stolenCargo.push(cargoHold.slice(i,1, "bad icrecream"));
+      //console.log(stolenCargo[i])
+
+    } 
+    return stolenCargo;
+
+  } 
+
+};
+console.log(liberatedCargo(cargoHold));
+console.log("----")
+console.log(cargoHold)
+
+/*
+let liberatedCargo = function(cargoHold) {
+  let stolenCargo = [];
+  
+  for (let i = 0; i < cargoHold.length; i++) {
+    if (cargoHold[i] === "gold") {
+      stolenCargo.push(cargoHold[i]);
+      cargoHold[i] = "wet clothes"; // Replace "gold" with "wet clothes"
+    } else if (cargoHold[i] === "satellite") {
+      stolenCargo.push(cargoHold[i]);
+      cargoHold[i] = "bad ice cream"; // Replace "satellite" with "bad ice cream"
+    }
+  }
+
+  return stolenCargo;
+};
+
+// Example usage:
+
+console.log("Stolen cargo:", liberatedCargo(cargoHold));
+console.log("Remaining cargo hold:", cargoHold);
+*/
 
 //a). Define another anonymous function with an array as a parameter, and set it equal to another innocent variable.
 
@@ -48,6 +106,12 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 /* Finally, you need to print a receipt for the accountant. Don’t laugh! That genius knows MATH and saves us more gold than you can imagine.
  */
+
+let irs = function(levelOfFuel, itemsInCargo) {
+  let arr = deckMops(itemsInCargo);
+  return  `Raided ${nonSuspiciousFunction(fuelLevel)} kg of fuel from the tanks, and stole ${arr[0]} and ${arr[1]} from the cargo hold.`
+}
+console.log
  
 //a). Define a function called irs that can take fuelLevel and cargoHold as arguments.
 	
